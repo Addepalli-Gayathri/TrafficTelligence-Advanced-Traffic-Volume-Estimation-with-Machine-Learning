@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Volume Estimation</title>
+    <style>
+        body {
+            background-color: lightgray;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 60%;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Traffic Volume Estimation</h1>
+
+    <!-- Update form action to '/result' -->
+    <form action="{{ url_for('result') }}" method="post">
+        <label for="holiday">Holiday:</label>
+        <select id="holiday" name="holiday">
+            <option value="7">None</option>
+            <option value="1">Columbus Day</option>
+            <option value="18">Veterans Day</option>
+            <option value="9">Thanksgiving Day</option>
+            <option value="10">Christmas Day</option>
+            <option value="6">New Year's Day</option>
+            <option value="11">Washington's Birthday</option>
+            <option value="5">Memorial Day</option>
+            <option value="2">Independence Day</option>
+            <option value="8">State Fair</option>
+            <option value="3">Labor Day</option>
+            <option value="4">Martin Luther King Jr Day</option>
+        </select>
+        <br><br>
+
+        <label>Temperature:</label>
+        <input type="number" name="temp" placeholder="Temperature" required />
+        <br><br>
+
+        <label>Rain:</label>
+        <input type="number" min="0" max="2" name="rain" placeholder="Rainfall" required />
+        <br><br>
+
+        <label>Snow:</label>
+        <input type="number" min="0" max="1" name="snow" placeholder="Snow" required />
+        <br><br>
+
+        <label for="weather">Weather:</label>
+        <select id="weather" name="weather">
+            <option value="1">Clouds</option>
+            <option value="8">Clear</option>
+            <option value="6">Rain</option>
+            <option value="2">Drizzle</option>
+            <option value="5">Mist</option>
+            <option value="4">Haze</option>
+            <option value="3">Fog</option>
+            <option value="10">Thunderstorm</option>
+            <option value="8">Snow</option>
+            <option value="9">Squall</option>
+            <option value="7">Smoke</option>
+        </select>
+        <br><br>
+
+        <label>Year:</label>
+        <input type="number" min="2012" max="2022" name="year" required />
+        <br><br>
+
+        <label>Month:</label>
+        <input type="number" min="1" max="12" name="month" required />
+        <br><br>
+
+        <label>Day:</label>
+        <input type="number" min="1" max="31" name="day" required />
+        <br><br>
+
+        <label>Hour:</label>
+        <input type="number" min="0" max="24" name="hours" required />
+        <br><br>
+
+        <label>Minutes:</label>
+        <input type="number" min="0" max="60" name="minutes" required />
+        <br><br>
+
+        <label>Seconds:</label>
+        <input type="number" min="0" max="60" name="seconds" required />
+        <br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
